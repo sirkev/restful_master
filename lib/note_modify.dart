@@ -24,7 +24,7 @@ class NoteModify extends StatelessWidget {
             const TextField(
               decoration: InputDecoration(hintText: "Note Content"),
             ),
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
             GestureDetector(
               onTap: (){},
               child: Container(

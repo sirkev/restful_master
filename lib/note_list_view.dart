@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restful_master/note_data.dart';
+import 'package:restful_master/note_delete.dart';
 import 'package:restful_master/note_modify.dart';
 
 class NoteList extends StatelessWidget {
@@ -19,6 +20,12 @@ class NoteList extends StatelessWidget {
       body: ListView.builder(
           itemBuilder: (context, index) => Dismissible(
             key: ValueKey(notes[index].noteID),
+            direction: DismissDirection.startToEnd,
+            onDismissed:(direction){},
+            confirmDismiss: (direction) async {
+              return
+                result = await showDialog(context: context, builder: (_)=>NoteDelete());
+            },
             child: ListTile(
                   onTap: () {
                     Navigator.of(context)
